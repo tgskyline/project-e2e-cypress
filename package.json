@@ -25,6 +25,7 @@
     "eslint-plugin-import": "^2.23.4"
   },
   "dependencies": {
-    "cypress": "^7.7.0"
+    "cypress": "^7.7.0",
+    "cypress-xpath": "^1.6.2"
   }
 }
