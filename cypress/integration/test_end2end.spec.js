@@ -24,5 +24,14 @@ describe('Test End 2 End', () => {
 
   })
 
+  it.only('Edit Account', () => {
+    cy.get('[data-test=menu-settings]').click()
+    cy.get('[href="/contas"]').click()
+    // cy.get('.fa-edit').click()
+    cy.xpath("//table//td[contains(.,'Financiamento')]/..//i[@class='far fa-edit']").click()
+    cy.get('[data-test=nome]').clear().type('Financiamento da casa')
+    cy.get('.btn').click()
+  })
+
 })
 
