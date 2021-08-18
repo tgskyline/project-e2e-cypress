@@ -31,6 +31,7 @@ describe('Test End 2 End', () => {
     cy.xpath("//table//td[contains(.,'Financiamento')]/..//i[@class='far fa-edit']").click()
     cy.get('[data-test=nome]').clear().type('Financiamento da casa')
     cy.get('.btn').click()
+    cy.get('.toast-message').should('contain', 'Conta atualizada')
   })
 
 
