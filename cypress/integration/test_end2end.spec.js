@@ -24,7 +24,7 @@ describe('Test End 2 End', () => {
 
   })
 
-  it.only('Edit Account', () => {
+  it('Edit Account', () => {
     cy.get('[data-test=menu-settings]').click()
     cy.get('[href="/contas"]').click()
     // cy.get('.fa-edit').click()
@@ -32,6 +32,8 @@ describe('Test End 2 End', () => {
     cy.get('[data-test=nome]').clear().type('Financiamento da casa')
     cy.get('.btn').click()
   })
+
+
 
 })
 
