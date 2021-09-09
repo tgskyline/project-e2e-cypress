@@ -23,3 +23,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import loc from '../support/locators'
+
+Cypress.Commands.add('login', (user, passwd) => {
+
+  cy.visit('https://barrigareact.wcaquino.me/')
+  cy.fixture('userData').as('data').then(function () {
+    cy.get(loc.LOGIN.USER).type(this.data.login)
+    cy.get(loc.LOGIN.PASSWORD).type(this.data.senha)
+    cy.get(loc.LOGIN.BTN_LOGIN).click()
+    cy.get(loc.MESSAGE).should('contain', 'Bem vindo').click()
+  })
+
+})
+
+
+Cypress.Commands.add('resetApp', () => {
+
+  cy.get(loc.MENU.SETTINGS).click()
+  cy.get(loc.MENU.RESET).click()
+})
+
