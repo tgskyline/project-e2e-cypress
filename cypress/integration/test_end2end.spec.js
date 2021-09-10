@@ -47,4 +47,16 @@ describe('Test End 2 End', () => {
     cy.get(loc.MESSAGE).should('contain', 'code 400')
   })
 
+  it('Should create a transaction', () => {
+    cy.get(loc.MENU.MOVIMENTACAO).click()
+    cy.get(loc.MOVIMENTACAO.DESCRICAO).type('Aulas de inglês')
+    cy.get(loc.MOVIMENTACAO.VALOR).type('100')
+    cy.get(loc.MOVIMENTACAO.INTERESSADO).type('Tiago Gomes')
+    cy.get(loc.MOVIMENTACAO.BTN_SALVAR).click()
+    cy.get(loc.MESSAGE).should('contain', 'sucesso')
+
+    cy.get(loc.EXTRATO.LINHAS).should('have.length', 7)
+    cy.xpath(loc.EXTRATO.XP_BUSCA_ELEMENTO).should('exist')
+  })
+
 })
