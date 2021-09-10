@@ -1,7 +1,17 @@
 ///<reference types="cypress" />
 
+//Cenários de Teste
+
+// 1º Inserir Conta
+// 2º Alterar Conta
+// 3º Inserir Conta Repetida
+// 4º Inserir Movimentação
+// 5º Cálculo de Saldo
+// 6º Remover Movimentação
+
 import loc from '../support/locators'
 import '../support/commandsContas'
+
 
 // Login
 describe('Test End 2 End', () => {
