@@ -21,7 +21,13 @@ const locators = {
     DESCRICAO: '[data-test=descricao]',
     VALOR: '[data-test=valor]',
     INTERESSADO: '[data-test=envolvido]',
-    BTN_SALVAR: '.btn-primary'
+    BTN_SALVAR: '.btn-primary',
+
+  },
+
+  EXTRATO: {
+    LINHAS: '.list-group > li',
+    XP_BUSCA_ELEMENTO: "//span[contains(., 'Aulas')]/following-sibling::small[contains(., '100')]"
   },
   MESSAGE: '.toast-message'
 
