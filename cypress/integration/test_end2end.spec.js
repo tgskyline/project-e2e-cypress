@@ -40,4 +40,11 @@ describe('Test End 2 End', () => {
     cy.get(loc.MESSAGE).should('contain', 'Conta atualizada')
   })
 
+  it('Should not create an account with same name', () => {
+    cy.acessMenuAccount()
+    cy.get(loc.CONTAS.NOME).type('Financiamento da casa')
+    cy.get(loc.CONTAS.BTN_SALVAR).click()
+    cy.get(loc.MESSAGE).should('contain', 'code 400')
+  })
+
 })
