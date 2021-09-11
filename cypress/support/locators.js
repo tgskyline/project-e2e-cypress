@@ -5,6 +5,7 @@ const locators = {
     BTN_LOGIN: '.btn',
   },
   MENU: {
+    HOME: '[data-test=menu-home]',
     SETTINGS: '[data-test=menu-settings]',
     CONTAS: '[href="/contas"]',
     RESET: '[href="/reset"]',
@@ -21,6 +22,7 @@ const locators = {
     DESCRICAO: '[data-test=descricao]',
     VALOR: '[data-test=valor]',
     INTERESSADO: '[data-test=envolvido]',
+    STATUS: '[data-test=status]',
     BTN_SALVAR: '.btn-primary',
 
   },
