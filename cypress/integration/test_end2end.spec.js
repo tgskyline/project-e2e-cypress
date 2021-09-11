@@ -12,14 +12,11 @@
 import loc from '../support/locators'
 import '../support/commandsContas'
 
-
-// Login
 describe('Automation of Test End 2 End (Automação de Teste End 2 End', () => {
   before(() => {
     cy.login('this.data.login', 'this.data.senha')
     cy.resetApp()
   })
-
 
   it('Should insert account (Deve inserir uma conta)', () => {
     cy.acessMenuAccount()
