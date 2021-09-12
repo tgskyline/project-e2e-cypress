@@ -9,7 +9,8 @@ const locators = {
     SETTINGS: '[data-test=menu-settings]',
     CONTAS: '[href="/contas"]',
     RESET: '[href="/reset"]',
-    MOVIMENTACAO: '[data-test=menu-movimentacao]'
+    MOVIMENTACAO: '[data-test=menu-movimentacao]',
+    EXTRATO: '[data-test=menu-extrato]'
 
   },
   CONTAS: {
@@ -19,6 +20,8 @@ const locators = {
   },
 
   MOVIMENTACAO: {
+    DESIGNACAO_RECEITA: '[data-test=tipo-receita]',
+    DESIGNACAO_DESPESA: '[data-test=tipo-despesa]',
     DESCRICAO: '[data-test=descricao]',
     VALOR: '[data-test=valor]',
     INTERESSADO: '[data-test=envolvido]',
@@ -30,7 +33,8 @@ const locators = {
 
   EXTRATO: {
     LINHAS: '.list-group > li',
-    FN_XP_BUSCA_ELEMENTO: (desc, value) => `//span[contains(., '${desc}')]/following-sibling::small[contains(., '${value}')]`
+    FN_XP_BUSCA_ELEMENTO: (desc, value) => `//span[contains(., '${desc}')]/following-sibling::small[contains(., '${value}')]`,
+    FN_XP_BTN_REMOVER_TRANSACAO: conta => `//span[contains(.,'${conta}')]/../../..//i[@class="far fa-trash-alt"]`,
   },
 
   SALDO: {
