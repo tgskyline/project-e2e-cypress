@@ -35,7 +35,8 @@ describe('Automation of Test End 2 End (Automação de Teste End 2 End', () => {
 
   it('Should create an account with same name (Deve criar uma conta com o mesmo nome)', () => {
     cy.acessMenuAccount()
-    cy.get(loc.CONTAS.NOME).type('Recebimento de Dividendos')
+
+    cy.get(loc.CONTAS.NOME).click().clear().type('Recebimento de Dividendos')
     cy.get(loc.CONTAS.BTN_SALVAR).click()
     cy.get(loc.MESSAGE).should('contain', 'code 400')
   })
