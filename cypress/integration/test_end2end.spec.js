@@ -38,7 +38,10 @@ describe('Automation of Test End 2 End (Automação de Teste End 2 End', () => {
   it('Should create an account with same name (Deve criar uma conta com o mesmo nome)', () => {
     cy.acessMenuAccount()
 
-    cy.get(loc.CONTAS.NOME).click().clear().type('Recebimento de Dividendos')
+    cy.get(loc.CONTAS.NOME).click().clear()
+    cy.wait(1000)
+    cy.get(loc.CONTAS.NOME).click().type('Recebimento de Dividendos')
+    cy.wait(1000)
     cy.get(loc.CONTAS.BTN_SALVAR).click()
     cy.get(loc.MESSAGE).should('contain', 'code 400')
   })
@@ -95,7 +98,7 @@ describe('Automation of Test End 2 End (Automação de Teste End 2 End', () => {
     //cy.xpath("/html/body/div[@id='root']/div/div[@class='container']/table[@class='table table-hover table-bordered']/tbody/tr[1]/td[2]").should('contain', "100")
   })
 
-  it('Should remove a transaction', () => {
+  it('Should remove a transaction (Deve remover uma transação)', () => {
     cy.get(loc.MENU.EXTRATO).click()
     cy.xpath(loc.EXTRATO.FN_XP_BTN_REMOVER_TRANSACAO('Cash Back Banco Inter')).click()
     cy.get(loc.MESSAGE).should('contain', 'sucesso')
