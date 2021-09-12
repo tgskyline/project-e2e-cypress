@@ -27,35 +27,39 @@ describe('Automation of Test End 2 End (Automação de Teste End 2 End', () => {
 
   it('Should edit account (Deve editar uma conta)', () => {
     cy.acessMenuAccount()
-    cy.xpath(loc.CONTAS.XP_BTN_ALTERAR).click()
-    cy.get(loc.CONTAS.NOME).clear().type('Financiamento da casa')
+    cy.xpath(loc.CONTAS.FN_XP_BTN_ALTERAR('Financiamento')).click()
+    cy.get(loc.CONTAS.NOME).clear().type('Recebimento de Dividendos')
     cy.get(loc.CONTAS.BTN_SALVAR).click()
-    cy.get(loc.MESSAGE).should('contain', 'Conta atualizada')
+    cy.get(loc.MESSAGE).should('contain', 'Conta')
   })
 
   it('Should create an account with same name (Deve criar uma conta com o mesmo nome)', () => {
     cy.acessMenuAccount()
-    cy.get(loc.CONTAS.NOME).type('Financiamento da casa')
+    cy.get(loc.CONTAS.NOME).type('Recebimento de Dividendos')
     cy.get(loc.CONTAS.BTN_SALVAR).click()
     cy.get(loc.MESSAGE).should('contain', 'code 400')
   })
 
-  it('Should create a transaction (Deve crair uma transação)', () => {
+  it('Should create a transaction (Deve criar uma transação)', () => {
     cy.get(loc.MENU.MOVIMENTACAO).click()
-    cy.get(loc.MOVIMENTACAO.DESCRICAO).type('Aulas de inglês')
+    cy.get(loc.MOVIMENTACAO.DESCRICAO).type('Dividendos Banco Inter')
     cy.get(loc.MOVIMENTACAO.VALOR).type('100')
     cy.get(loc.MOVIMENTACAO.INTERESSADO).type('Tiago Gomes')
+    cy.get(loc.MOVIMENTACAO.CONTA).select('Recebimento de Dividendos')
     cy.get(loc.MOVIMENTACAO.STATUS).click()
     cy.get(loc.MOVIMENTACAO.BTN_SALVAR).click()
     cy.get(loc.MESSAGE).should('contain', 'sucesso')
 
     cy.get(loc.EXTRATO.LINHAS).should('have.length', 7)
-    cy.xpath(loc.EXTRATO.XP_BUSCA_ELEMENTO).should('exist')
+    cy.xpath(loc.EXTRATO.FN_XP_BUSCA_ELEMENTO('Dividendos Banco Inter', '100,00')).should('exist')
   })
 
   it('Should get balance (Deve pegar o saldo)', () => {
     cy.get(loc.MENU.HOME).click()
+    cy.xpath(loc.SALDO.FN_XP_SALDO_CONTA('Recebimento de Dividendos')).should('contain', '100')
 
+    //Teste de localicazação de Xpath com plugin Xpath Helper
+    //cy.xpath("/html/body/div[@id='root']/div/div[@class='container']/table[@class='table table-hover table-bordered']/tbody/tr[1]/td[2]").should('contain', "100")
   })
 
 })
