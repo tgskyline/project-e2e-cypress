@@ -102,6 +102,7 @@ describe('Automation of Test End 2 End (Automação de Teste End 2 End', () => {
     cy.get(loc.MENU.EXTRATO).click()
     cy.xpath(loc.EXTRATO.FN_XP_BTN_REMOVER_TRANSACAO('Cash Back Banco Inter')).click()
     cy.get(loc.MESSAGE).should('contain', 'sucesso')
+    cy.get(loc.MENU.HOME).click()
   })
 
 })
